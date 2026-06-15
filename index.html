@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#090b0f">
+    <title>Dan's Birthday Poker Trivia</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="screen welcome-screen is-active" data-screen="welcome" aria-labelledby="welcome-title">
+        <div class="welcome-card">
+          <p class="eyebrow">Happy Birthday Dan</p>
+          <h1 id="welcome-title">Poker<br><span>Trivia</span></h1>
+          <p class="welcome-copy">Enter your name and use this app as your answer sheet. Your score will be calculated at the end. Good luck!</p>
+          <form class="join-form" data-name-form>
+            <label for="playerName">Player name</label>
+            <input id="playerName" name="playerName" type="text" autocomplete="name" maxlength="24" placeholder="Jeremy" required>
+            <button type="submit">Start Quiz</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="screen quiz-screen" data-screen="quiz" aria-labelledby="quiz-title">
+        <header class="top-status">
+          <div>
+            <p class="eyebrow">Answer Sheet</p>
+            <h2 id="quiz-title">Dan's Birthday Poker Trivia</h2>
+          </div>
+          <strong data-player-pill></strong>
+        </header>
+
+        <div class="progress-panel" aria-live="polite">
+          <div class="progress-label">
+            <span data-progress-text>0 / 0 Questions Answered</span>
+            <span data-progress-percent>0%</span>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <span data-progress-bar></span>
+          </div>
+        </div>
+
+        <div class="category-list" data-category-list></div>
+
+        <button class="submit-button" data-submit disabled>Submit Answers</button>
+      </section>
+
+      <section class="screen results-screen" data-screen="results" aria-labelledby="results-title">
+        <div class="results-card">
+          <p class="confetti" aria-hidden="true">· · · · · · · · · · · ·</p>
+          <h2 id="results-title">Quiz Complete!</h2>
+          <div class="trophy" aria-hidden="true">🏆</div>
+          <p class="result-name" data-result-name></p>
+          <p class="score-line"><strong data-result-score>0</strong> / <span data-result-total>0</span></p>
+          <p class="score-caption">Overall Score</p>
+          <div class="result-stats">
+            <div>
+              <span class="stat-icon good">✓</span>
+              <strong data-result-correct>0</strong>
+              <small>A/B Correct</small>
+            </div>
+            <div>
+              <span class="stat-icon bad">×</span>
+              <strong data-result-incorrect>0</strong>
+              <small>A/B Wrong</small>
+            </div>
+            <div>
+              <span class="stat-icon">★</span>
+              <strong data-result-accuracy>0%</strong>
+              <small>Accuracy</small>
+            </div>
+          </div>
+          <div class="category-score-list" data-category-scores></div>
+          <button data-review>Review Answers</button>
+          <button class="secondary-button" data-play-again>Play Again</button>
+        </div>
+      </section>
+
+      <section class="screen review-screen" data-screen="review" aria-labelledby="review-title">
+        <header class="review-header">
+          <button class="back-button" data-back-results aria-label="Back to results">‹</button>
+          <h2 id="review-title">Review Answers</h2>
+        </header>
+        <div class="review-list" data-review-list></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

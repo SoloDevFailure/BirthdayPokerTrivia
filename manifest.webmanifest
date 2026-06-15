@@ -1,0 +1,9 @@
+{
+  "name": "Dan's Birthday Poker Trivia",
+  "short_name": "Poker Trivia",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#050608",
+  "theme_color": "#090b0f",
+  "icons": []
+}
