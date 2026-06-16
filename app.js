@@ -397,6 +397,7 @@ function renderChoiceReview(question) {
   const picked = state.answers[question.id];
   const isCorrect = picked === question.correctAnswer;
   const category = question.category;
+  const correctAnswer = getChoiceReviewAnswer(question);
   const card = document.createElement("article");
   card.className = "review-card";
   card.innerHTML = `
@@ -409,9 +410,19 @@ function renderChoiceReview(question) {
       <span class="review-choice${picked === "A" ? " is-picked" : ""}">${category.options.A.emoji}</span>
       <span class="review-choice${picked === "B" ? " is-picked" : ""}">${category.options.B.emoji}</span>
     </div>
-    <p class="review-meta">Your answer: ${optionLabel(category.options[picked])} · Correct answer: ${optionLabel(category.options[question.correctAnswer])}</p>
+    <p class="review-meta">Correct Answer: ${correctAnswer}</p>
   `;
   return card;
+}
+
+function getChoiceReviewAnswer(question) {
+  const option = question.category.options[question.correctAnswer];
+  if (!option.label.startsWith("Option")) return option.label;
+
+  const sides = question.prompt.split(" or ");
+  if (sides.length < 2) return option.label;
+
+  return question.correctAnswer === "A" ? sides[0].trim() : sides.slice(1).join(" or ").trim();
 }
 
 function renderPriceReview(question) {
