@@ -1,4 +1,4 @@
-const CACHE_NAME = "olearly-trivia-v9";
+const CACHE_NAME = "olearly-trivia-v10";
 const ASSETS = [
   "./",
   "./index.html",
